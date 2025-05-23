@@ -30,8 +30,9 @@ function Cart() {
     (sum, item) => sum + item.price * item.quantity,
     0
   );
-  function handleBuyNow(product) {
-    navigate("/address", { state: { product } });
+  function handleBuyNow() {
+    if (cartItems.length === 0) return;
+    navigate("/address", { state: { cart: cartItems } });
   }
 
   return (
@@ -62,7 +63,7 @@ function Cart() {
           ))}
           <div className="cart-summary">
             <p className="cart-total">Total: Rs {total.toFixed(2)}</p>
-            <button className="checkout-btn"  onClick={() => handleBuyNow(product)}>
+            <button className="checkout-btn" onClick={handleBuyNow}>
               Checkout
             </button>
           </div>

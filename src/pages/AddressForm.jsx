@@ -9,6 +9,8 @@ function AddressForm() {
   const [editingSlot, setEditingSlot] = useState(null);
   const location = useLocation();
   const product = location.state?.product;
+  const cart = location.state?.cart || [];
+
 
   const [formData, setFormData] = useState({
     address: "",
@@ -100,6 +102,12 @@ function AddressForm() {
       alert("Please select an address");
       return;
     }
+
+    if (!cart.length) {
+      alert("No cart items found.");
+      return;
+    }
+
     const addrKey = `address${selectedSlot === 1 ? "" : selectedSlot}`;
     const cityKey = `city${selectedSlot === 1 ? "" : selectedSlot}`;
     const stateKey = `state${selectedSlot === 1 ? "" : selectedSlot}`;
@@ -109,35 +117,30 @@ function AddressForm() {
       state: customer[stateKey],
     };
 
-    console.log("Selected address:", selectedAddress);
-    console.log("Product:", product);
-
-    if (!selectedAddress.address || !product) {
-      alert("Missing address or product info");
-      return;
-    }
-
     try {
-      const orderRes = await fetch("http://localhost:5000/api/orders", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          id: user.id,
-          customer: customer.name,
-          product: product.name,
-          quantity: 1,
-          total: product.price,
-          status: "Pending",
-        }),
-      });
+      for (const item of cart) {
+        const res = await fetch("http://localhost:5000/api/orders", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            id: user.id,
+            customer: customer.name,
+            product: item.name,
+            quantity: item.quantity,
+            total: item.price * item.quantity,
+            status: "Pending",
+          }),
+        });
 
-      if (!orderRes.ok) throw new Error("Failed to place order");
+        if (!res.ok) throw new Error(`Failed to place order for ${item.name}`);
+      }
 
-      alert("Order placed successfully!");
-      // Redirect or update UI as needed here
+      alert("All orders placed successfully!");
+      localStorage.removeItem("cart"); // clear cart
+      // Optionally redirect
     } catch (err) {
       console.error("Order placement error:", err);
-      alert("Error placing order");
+      alert("Error placing one or more orders");
     }
   };
 

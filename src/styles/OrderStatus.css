@@ -2,7 +2,7 @@
   max-width: 800px;
   margin: 40px auto;
   padding: 20px;
-  
+
   border-radius: 10px;
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
   font-family: sans-serif;
@@ -67,4 +67,94 @@
 
 .status-step.active:not(:last-child)::after {
   background-color: #2ecc71;
+}
+
+.order-product-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.order-product-image {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.order-product-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.view-product-link {
+  margin-top: 5px;
+  font-size: 1rem;
+  color: #2bff00;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.view-product-link:hover {
+  color: #0e5200;
+}
+
+
+.order-history-toggle {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.order-history-toggle button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s ease;
+}
+
+.order-history-toggle button:hover {
+  background-color: #2980b9;
+}
+
+.order-history-dropdown {
+  max-height: 250px;
+  overflow-y: auto;
+  background-color: #f7f7f7;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px auto 30px;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.order-history-item {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #2c3e50;
+  background-color: white;
+  border-radius: 8px;
+  padding: 8px;
+  transition: background 0.2s;
+}
+
+.order-history-item:hover {
+  background-color: #ecf0f1;
+}
+
+.order-history-item img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  margin-right: 12px;
+  border-radius: 6px;
 }

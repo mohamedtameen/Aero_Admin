@@ -1,0 +1,79 @@
+.user-detail-container {
+  width: 100%;
+  max-width: 600px;
+
+  padding: 2rem;
+  border-radius: 12px;
+
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.user-detail-title {
+  background-color: aqua;
+  margin-bottom: 2rem;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  padding: 5px;
+  font-size: 26px;
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+.user-detail-container p {
+  font-size: 16px;
+  margin: 0.75rem 0;
+  color: #555;
+}
+
+/* Buttons container for better alignment */
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 2rem;
+}
+
+.order-status-btn,
+.logout-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  min-width: 140px;
+  text-align: center;
+}
+
+/* Order Status Button Style */
+.order-status-btn {
+  color: #000000;
+}
+
+/* Logout Button Style */
+.logout-btn {
+  background-color: #e74c3c;
+  color: #fff;
+}
+
+.logout-btn:hover {
+  background-color: #c0392b;
+}
+
+/* Responsive Typography */
+@media (max-width: 480px) {
+  .user-detail-title {
+    font-size: 22px;
+  }
+
+  .user-detail-container p {
+    font-size: 15px;
+  }
+
+  .order-status-btn,
+  .logout-btn {
+    font-size: 14px;
+    min-width: 120px;
+  }
+}

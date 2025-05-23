@@ -1,0 +1,70 @@
+.order-status-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  
+  border-radius: 10px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+  font-family: sans-serif;
+}
+
+.order-status-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
+.orders-list {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.order-status-flow h3 {
+  margin-bottom: 10px;
+  color: #34495e;
+}
+
+.status-flow {
+  display: flex;
+  justify-content: space-between;
+  max-width: 500px;
+  margin-top: 10px;
+}
+
+.status-step {
+  text-align: center;
+  flex: 1;
+  position: relative;
+  color: #bdc3c7;
+  font-weight: 600;
+  cursor: default;
+}
+
+.status-step.active {
+  color: #2ecc71; /* green */
+}
+
+.status-step.inactive {
+  color: #bdc3c7; /* grey */
+}
+
+.status-step .icon {
+  font-size: 28px;
+  margin-bottom: 5px;
+}
+
+/* Add a horizontal line connecting steps */
+.status-step:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 14px; /* center vertically */
+  right: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #bdc3c7;
+  z-index: -1;
+}
+
+.status-step.active:not(:last-child)::after {
+  background-color: #2ecc71;
+}

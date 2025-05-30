@@ -1,6 +1,6 @@
 .cart-container {
   padding: 2rem;
-  background: linear-gradient(to right, #f0f4f8, #e2eafc);
+  color: #e6edf3;
   min-height: 100vh;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -9,14 +9,15 @@
   font-size: 2rem;
   font-weight: 700;
   margin-bottom: 2rem;
-  color: #333;
 }
 
 .cart-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #ffffff;
+  background-color: #161b22;
+  margin-bottom: 10px;
+  color: white;
   padding: 1rem 1.5rem;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
@@ -35,7 +36,6 @@
 
 .cart-item-info p {
   font-size: 0.9rem;
-  color: #777;
 }
 
 .quantity-controls {
@@ -59,8 +59,9 @@
 }
 
 .remove-btn {
-  color: #e74c3c;
+  color: #f41800;
   font-weight: 500;
+  font-size: large;
   cursor: pointer;
   border: none;
   background: none;
@@ -79,7 +80,7 @@
 .cart-total {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #333;
+  
 }
 
 .checkout-btn {
@@ -89,7 +90,7 @@
   background: linear-gradient(to right, #4facfe, #00f2fe);
   border: none;
   border-radius: 8px;
-  color: white;
+  color: rgb(0, 0, 0);
   font-weight: bold;
   cursor: pointer;
   transition: background 0.3s ease;

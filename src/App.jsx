@@ -11,7 +11,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import AddressForm from "./pages/AddressForm";
 import OrderStatus from "./pages/OrderStatus";
 import ProductDetail from "./pages/ProductDetails";
-
+import "./App.css"
 function App() {
   return (
     <Router>

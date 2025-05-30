@@ -5,10 +5,11 @@ import {
   ClockCircleOutlined,
 } from "@ant-design/icons";
 import { Card } from "antd";
+import  "../styles/Contact.css"
 
 function Contact() {
   return (
-    <div style={{ padding: "2rem", maxWidth: "600px", margin: "auto" }}>
+    <div style={{ padding: "2rem", maxWidth: "100%", margin: "auto",  }}>
       <Card
         title="Contact Us"
         bordered={false}
@@ -25,8 +26,7 @@ function Contact() {
         </p>
         <p>
           <EnvironmentOutlined style={{ marginRight: 8 }} />
-          <strong>Address:</strong> 123 Aerospace Ave, Los Angeles, CA 90001,
-          USA
+          <strong>Address:</strong> Bapuji MBA College Davngere, Karnataka
         </p>
         <p>
           <ClockCircleOutlined style={{ marginRight: 8 }} />

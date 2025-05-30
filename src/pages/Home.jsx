@@ -1,8 +1,4 @@
 import { useEffect, useState } from "react";
-
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import "../styles/Home.css";
 import logo from "../assets/aero_logo.png";
 import engine from "../assets/engine.jpeg";
@@ -20,6 +16,7 @@ const sparePartImages = [engine, landingGear, avionics];
 
 function Home() {
   const [reviews, setReviews] = useState([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
     fetch("http://localhost:5000/api/customers")
@@ -28,33 +25,31 @@ function Home() {
       .catch(console.error);
   }, []);
 
-  const sliderSettings = {
-    dots: true,
-    infinite: true,
-    autoplay: true,
-    autoplaySpeed: 3000,
-    arrows: false,
-    speed: 800,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    pauseOnHover: false,
-  };
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % sparePartImages.length);
+    }, 3000); // Change image every 3 seconds
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
-    <div className="home-container">
+     <div className="home-container">
       {/* HERO SECTION */}
-      <section className="hero-banner">
-        <Slider {...sliderSettings}>
-          {sparePartImages.map((src, idx) => (
-            <div key={idx} className="carousel-image-wrapper">
-              <img
-                src={src}
-                alt={`Spare Part ${idx + 1}`}
-                className="carousel-image"
-              />
-            </div>
+      <section className="hero-banner fade-banner">
+        <div className="hero-text">Aero Spare Parts Hub</div>
+        <div className="fade-image-wrapper">
+          {sparePartImages.map((src, index) => (
+            <img
+              key={index}
+              src={src}
+              alt={`Spare Part ${index + 1}`}
+              className={`fade-image ${
+                index === currentIndex ? "visible" : "hidden"
+              }`}
+            />
           ))}
-        </Slider>
+        </div>
       </section>
       <section className="home-section about-section">
         <h2>Aero Spare Parts</h2>
